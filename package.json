@@ -1,0 +1,25 @@
+{
+  "name": "chatcat",
+  "version": "1.0.0",
+  "description": "Chat application using nodejs ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishakya/chat-cat.git"
+  },
+  "author": "Ashish Shakya <ashishakya@outlook.com>",
+  "license": "ISC",
+  "engines": {
+    "node": "10.18.1"
+  },
+  "bugs": {
+    "url": "https://github.com/ashishakya/chat-cat/issues"
+  },
+  "homepage": "https://github.com/ashishakya/chat-cat#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
