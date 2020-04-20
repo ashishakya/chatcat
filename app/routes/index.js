@@ -16,7 +16,10 @@ module.exports = () => {
                 res.render('chatroom');
             }
         },
-        'post': {}
+        'post': {},
+        'na':(req, res, next)=>{
+            res.status(400).sendFile(process.cwd() + '/views/404.htm');
+        }
     }
 
     return h.route(routes);
