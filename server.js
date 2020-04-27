@@ -5,10 +5,16 @@ const app = express();
 const chatCat = require('./app');
 
 app.set('port', process.env.PORT || 8001);
+
 // setting templating engine
 app.set('view engine', 'ejs');
+
 // middleware function to serve static file
 app.use(express.static('public'));
+
+// setting up session middleware. This has to be strictly placed before route is mounted.
+app.use(chatCat.session);
+
 // setting routes;
 app.use('/', chatCat.router);
 

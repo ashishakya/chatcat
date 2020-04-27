@@ -14,7 +14,14 @@ module.exports = () => {
             },
             '/chat': (req, res, next) => {
                 res.render('chatroom');
-            }
+            },
+            '/set-session': (req, res, next) => {
+                req.session.hello = 'biku';
+                res.send('Session has been set.');
+            },
+            '/get-session': (req, res, next) => {
+                res.send('session get: ' + req.session.hello);
+            },
         },
         'post': {},
         'na':(req, res, next)=>{

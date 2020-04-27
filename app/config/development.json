@@ -1,4 +1,5 @@
 {
   "host": "http://localhost:8001",
-  "dbURI": "mongodb+srv://ashishakya:CiKddhM5faJL1axB@node-chatcat-50oua.mongodb.net/test?retryWrites=true&w=majority"
+  "dbURI": "mongodb://ashishakya:CiKddhM5faJL1axB@node-chatcat-50oua.mongodb.net/test?retryWrites=true&w=majority",
+  "sessionSecret": "chatcat"
 }
