@@ -1,5 +1,11 @@
 {
   "host": "http://localhost:8001",
-  "dbURI": "mongodb://ashishakya:CiKddhM5faJL1axB@node-chatcat-50oua.mongodb.net/test?retryWrites=true&w=majority",
-  "sessionSecret": "chatcat"
+  "dbURI": "",
+  "sessionSecret": "chatcat",
+  "fb": {
+    "clientID": "",
+    "clientSecret": "",
+    "callbackURL": "//localhost:8001/auth/facebook/callback",
+    "profileFields": ["id", "displayName", "photos"]
+  }
 }
