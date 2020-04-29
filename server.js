@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const chatCat = require('./app');
+const passport = require('passport');
 
 app.set('port', process.env.PORT || 8001);
 
@@ -14,6 +15,8 @@ app.use(express.static('public'));
 
 // setting up session middleware. This has to be strictly placed before route is mounted.
 app.use(chatCat.session);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // setting routes;
 app.use('/', chatCat.router);
