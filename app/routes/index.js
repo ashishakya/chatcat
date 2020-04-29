@@ -10,14 +10,16 @@ module.exports = () => {
             '/': (req, res, next) => {
                 res.render('login');
             },
-            '/rooms': (req, res, next) => {
+            '/rooms': [h.isAuthenticated, (req, res, next) => {
                 res.render('rooms', {
                     user: req.user
                 });
-            },
-            '/chat': (req, res, next) => {
-                res.render('chatroom');
-            },
+            }],
+            '/chat': [h.isAuthenticated, (req, res, next) => {
+                res.render('chatroom', {
+                    user: req.user
+                });
+            }],
             '/set-session': (req, res, next) => {
                 req.session.hello = 'biku';
                 res.send('Session has been set.');
@@ -30,13 +32,13 @@ module.exports = () => {
                 successRedirect: '/rooms',
                 failureRedirect: '/'
             }),
-            '/logout':(req, res, next)=>{
+            '/logout': (req, res, next) => {
                 req.logout(); // it is made available by passport. it also removes req.user
                 res.redirect('/');
             }
         },
         'post': {},
-        'na':(req, res, next)=>{
+        'na': (req, res, next) => {
             res.status(400).sendFile(process.cwd() + '/views/404.htm');
         }
     }

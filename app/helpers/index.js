@@ -55,22 +55,33 @@ let createNewUser = profile => {
     })
 }
 
-let findById = id =>{
-    return new Promise((resolve, reject)=>{
-        db.userModel.findById(id, (error, user)=>{
-            if(error){
+let findById = id => {
+    return new Promise((resolve, reject) => {
+        db.userModel.findById(id, (error, user) => {
+            if (error) {
                 reject(error);
-            }else{
+            } else {
                 resolve(user);
             }
         })
     })
 }
 
+// a middleware that checks to see if the user is authenticated and logged in or not
+
+let isAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) { // this method is provided by passport
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 module.exports = {
     route,
     findOne,
     createNewUser,
-    findById
+    findById,
+    isAuthenticated
 }
 
